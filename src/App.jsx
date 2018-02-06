@@ -47,7 +47,7 @@ export default class App extends React.Component {
                     </Menu.Item>
                 </Menu>
             </Header>
-            <Content style={{ padding: '0 50px', background: '#fff' }}>
+            <Content style={{background: '#fff', flex: 1 }}>
                 {/* 配置路由规则 */}
                 <Route path="/home" component={ HomeContainer }></Route>
                 <Route path="/movie" component={ MovieContainer }></Route>
