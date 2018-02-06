@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default class About extends React.Component {
+
+export default class HomeContainer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -9,7 +10,7 @@ export default class About extends React.Component {
 
     render() {
         return <div>
-                <h1>关于我们</h1>
-            </div>
+            <h1>首页</h1>
+        </div>
     }
 }
