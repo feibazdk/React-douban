@@ -1,7 +1,7 @@
 import React from 'react';
 
 // 导入 loading 组件
-import { Spin, Alert } from 'antd';
+import { Spin, Alert, Pagination  } from 'antd';
 
 // 导入fetch-jsonp
 import fetchJSONP from 'fetch-jsonp';
@@ -72,11 +72,20 @@ export default class MovieList extends React.Component {
                 />
             </Spin>
         }else{
-            return <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {this.state.movieslist.map(item => {
-                    return <MovieItem key={item.id} {...item}>< /MovieItem>
-                })}
+            return <div>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {this.state.movieslist.map(item => {
+                        return <MovieItem key={item.id} {...item} history={ this.props.history }></MovieItem>
+                    })}
+                </div>
+                <Pagination defaultCurrent={this.state.nowPage} pageSize={this.state.pageSize} total={this.state.total} onChange={ this.pageChanged } />
             </div>
         }
+    }
+
+    pageChanged = (page) => {
+        console.log(this.props);
+
+        this.props.history.push('/movie/' + this.state.movieType + '/' + page)
     }
 }

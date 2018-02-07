@@ -40,7 +40,7 @@ export default class App extends React.Component {
                         <Link to="/home">影院首页</Link>
                     </Menu.Item>
                     <Menu.Item key="movie">
-                        <Link to="/movie">热播电影</Link>
+                        <Link to="/movie/in_theaters/1">热播电影</Link>
                     </Menu.Item>
                     <Menu.Item key="about">
                         <Link to="/about">关于我们</Link>
