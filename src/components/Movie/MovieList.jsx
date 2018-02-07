@@ -9,8 +9,6 @@ import fetchJSONP from 'fetch-jsonp';
 // 导入组件
 import MovieItem  from "./MovieItem.jsx";
 
-
-
 export default class MovieList extends React.Component {
     constructor(props) {
         super(props);
@@ -22,11 +20,22 @@ export default class MovieList extends React.Component {
             total: 0, // 当前电影分类下，总共有多少条数据
             isloading: true, // 数据是否正在加载中
             movieType: props.match.params.type // 请求的 type 值
-        }
+         }
     }
 
     componentWillMount() {
         this.loadMovieMsg();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // 当地址栏变化的时候，重置参数
+        this.setState({
+            isloading: true,
+            nowPage: parseInt(nextProps.match.params.page) || 1,
+            movieType: nextProps.match.params.type
+        }, function(){
+            this.loadMovieMsg();
+        })
     }
 
     render() {
